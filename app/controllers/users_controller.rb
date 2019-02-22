@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.new(
       name: params[:name],
       email: params[:email],
-      password: params[:password]
+      password_digest: params[:password]
     )
 
     if user.save
@@ -21,3 +21,12 @@ class UsersController < ApplicationController
     end
   end
 end
+
+
+# create_table "users", force: :cascade do |t|
+#   t.string   "name"
+#   t.string   "email"
+#   t.string   "password_digest"
+#   t.datetime "created_at",      null: false
+#   t.datetime "updated_at",      null: false
+# end
