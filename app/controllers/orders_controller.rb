@@ -56,4 +56,8 @@ class OrdersController < ApplicationController
     order
   end
 
+  def order_summary
+    summary_items
+  end
+
 end
