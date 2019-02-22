@@ -46,9 +46,14 @@
         </li>
         <li>
           <% if current_user %>
-            Logged In
+            <%= link_to "Logout", '/logout' %>
           <% else %>
-            Not Logged In
+            <li>
+              <%= link_to "Login", '/login' %>
+            </li>
+            <li>
+            <%= link_to "Register", '/users/new' %>
+            </li>
           <% end %>
         </li>
       </ul>
