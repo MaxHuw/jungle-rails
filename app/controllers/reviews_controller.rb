@@ -1,13 +1,13 @@
 class ReviewsController < ApplicationController
-  before_filter :authorize
 
   def create
     puts review_params
     @product = Product.find(params["product_id"])
     @review = Review.new(review_params)
     @review.product_id = params["product_id"]
-    @review.user_id = @current_user.id
-    @review.rating = params["rating"].to_i 
+    @review.user_id = current_user.id
+    @review.rating = params["rating"].to_i
+    if @review.save
       redirect_to :back
     else
       puts @review.errors.to_a
