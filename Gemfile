@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "~> 2.3.0"
 
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -43,6 +43,7 @@ gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
