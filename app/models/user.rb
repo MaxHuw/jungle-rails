@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
 
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 4 }
 
   def self.authenticate_with_credentials(email, password)
     user = where('LOWER(email) = ?', email.downcase.strip)[0]
     user && user.authenticate(password)
   end
-  
+
 end

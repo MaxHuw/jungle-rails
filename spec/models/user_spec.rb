@@ -32,4 +32,15 @@ RSpec.describe User, type: :model do
     expect(@user.errors.messages[:email]).to include('can\'t be blank')
   end
 
+  it 'requires a unique email' do
+    first_user = User.new(first_name: 'Max', last_name: 'Graham', email: 'test3@test.com', password: 'test3')
+    second_user = User.new(first_name: 'Max', last_name: 'hughes', email: 'test3@test.com', password: 'TEST4')
+    first_user.save
+    second_user.save
+    expect(first_user).to be_valid
+    expect(second_user).to_not be_valid
+    expect(second_user.errors.messages[:email]).to include('has already been taken')
+  end
+
+
 end
